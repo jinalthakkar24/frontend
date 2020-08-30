@@ -19,6 +19,16 @@
         </style>
     </head>
     <body>
+        <form #groupdata="ngForm" (ngSubmit)="onSubmit(groupdata.value)" >
+        <select name="groupData" ngModel>
+            <option  value ="department">Department</option>
+            <option value="country">Country</option>
+            <option value="salarySlab">Salary slab</option>
+            <option value="city">City</option>
+        </select>
+        <br>
+        <button style="margin-left: 250px;">Submit</button>
+    </form>
         <table  class="floatedTable">
             <tr>
                 <th>Group Name</th>

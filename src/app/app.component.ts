@@ -16,8 +16,15 @@ export class AppComponent {
   custArr = [];
   display:any=[];
   check:any=[];
+  gr:string ="department";
+  onSubmit(group) {
+   
+    this.gr=group.groupData;
+    console.log(this.gr);
+    this.getData(this.gr);
+  }
   
-
+  
   data = [
     {
     "id": 1,
@@ -63,14 +70,14 @@ export class AppComponent {
    cntarr:any=[];
    gdata:any=[];
     
-   grp:any="p.department";
-   g:"department";
+   
     constructor() { 
-      
-      
-      
-      
-      
+      this.getData(this.gr);
+    }
+
+  
+    getData(group:any){
+
       of(
         // Api Data
         {
@@ -111,7 +118,7 @@ export class AppComponent {
           }
       ).pipe(
         //code of groupby and mergemap
-        groupBy(p => p["department"]),
+        groupBy(p => p[this.gr]),
         mergeMap((group$) => group$.pipe(reduce((acc, cur) => [...acc, cur], []))),
       )
         
@@ -121,15 +128,15 @@ export class AppComponent {
         {
           //output of groupby data and logic
           this.custArr = [];
-          console.log("LEN:"+ p[0]["department"]);
-          this.custArr["group"] =  p[0]["department"];
+          console.log("LEN:"+ p[0][this.gr]);
+          this.custArr["group"] =  p[0][this.gr];
           this.custArr["user"] =  p.length; 
           this.cntarr.push(p.length);
           this.per= p.length*100/this.len;
           this.custArr["per"] =  this.per;
           this.perArr.push(this.per);
           this.check.push(this.per);
-          this.gdata.push(p[0]["department"]);
+          this.gdata.push(p[0][this.gr]);
           var destinationArray = this.custArr;
           this.myArr = this.myArr.concat ( Array.of( destinationArray));
           console.log(this.myArr);         
@@ -142,7 +149,5 @@ export class AppComponent {
         console.log("count: "+this.cntarr);
         this.tempArr = this.myArr;
     }
-
-  
    
 }
