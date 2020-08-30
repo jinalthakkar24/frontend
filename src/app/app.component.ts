@@ -18,7 +18,9 @@ export class AppComponent {
   check:any=[];
   gr:string ="department";
   onSubmit(group) {
-   
+  this.gdata=[];
+  this.perArr=[];
+  this.cntarr=[];
     this.gr=group.groupData;
     console.log(this.gr);
     this.getData(this.gr);
