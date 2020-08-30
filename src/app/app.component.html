@@ -1,0 +1,57 @@
+<router-outlet></router-outlet>
+<html>
+    <head>
+        <style>
+            table{
+                width: auto;
+                border-collapse: collapse;
+            }
+            table  tr td{
+                border: 1px solid black;
+                padding: 4px;
+            }
+            .floatedTable{
+                float: left;
+            }
+            th{
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <table  class="floatedTable">
+            <tr>
+                <th>Group Name</th>
+
+            </tr>
+            <tr  *ngFor="let item of gdata">
+                <td >
+                    {{item}} 
+                </td>
+            </tr>
+        </table>
+        <table  class="floatedTable">
+            <tr>
+                <th>Count</th>
+
+            </tr>
+            <tr *ngFor="let item1 of cntarr">
+                <td >
+                    {{item1}} 
+                </td>
+            </tr>
+        </table>
+        <table  class="floatedTable">
+            <tr>
+                <th>Percentage</th>
+
+            </tr>
+            <tr *ngFor="let item2 of perArr">
+                <td >
+                    {{item2}} 
+                </td>
+            </tr>
+        </table>
+            
+    </body>
+</html>
