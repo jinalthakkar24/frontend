@@ -131,17 +131,14 @@ export class AppComponent {
           //output of groupby data and logic
           this.custArr = [];
           console.log("LEN:"+ p[0][this.gr]);
-          this.custArr["group"] =  p[0][this.gr];
-          this.custArr["user"] =  p.length; 
+         
           this.cntarr.push(p.length);
           this.per= p.length*100/this.len;
-          this.custArr["per"] =  this.per;
+         
           this.perArr.push(this.per);
-          this.check.push(this.per);
+          
           this.gdata.push(p[0][this.gr]);
-          var destinationArray = this.custArr;
-          this.myArr = this.myArr.concat ( Array.of( destinationArray));
-          console.log(this.myArr);         
+                
         }
         );
         console.log("Avya ke"+this.per+this.perArr+this.cntarr+this.gdata);''
